@@ -45,3 +45,15 @@ class Single
         echo '调用方法成功';
     }
 }
+
+//用new实例化private标记构造函数的类会报错
+//$ins = new Single();
+ 
+//正确方法,用双冒号::操作符访问静态方法获取实例
+$ins = Single::getInstance();
+$ins->test();
+
+//复制(克隆)对象将导致一个E_USER_ERROR
+$ins_clone = clone $ins;
+
+echo "You will not see me!";

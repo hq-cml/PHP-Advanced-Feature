@@ -15,4 +15,12 @@
 
 class Single
 {
+    //保存类实例的静态成员变量
+    private static $_instance;
+     
+    //private标记的构造方法
+    private function __construct()
+    {
+        //echo 'This is a Constructed method;';
+    }
 }

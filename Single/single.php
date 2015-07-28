@@ -29,4 +29,19 @@ class Single
     {
         trigger_error('Clone is not allow!',E_USER_ERROR);
     }
+    
+    //单例方法,用于访问实例的公共的静态方法
+    public static function getInstance()
+    {
+        if(!(self::$_instance instanceof self))
+        {
+            self::$_instance = new self;
+        }
+        return self::$_instance;
+    }
+     
+    public function test()
+    {
+        echo '调用方法成功';
+    }
 }

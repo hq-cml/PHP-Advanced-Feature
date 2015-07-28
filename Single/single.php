@@ -23,4 +23,10 @@ class Single
     {
         //echo 'This is a Constructed method;';
     }
+    
+    //创建__clone方法防止对象被复制克隆
+    public function __clone()
+    {
+        trigger_error('Clone is not allow!',E_USER_ERROR);
+    }
 }

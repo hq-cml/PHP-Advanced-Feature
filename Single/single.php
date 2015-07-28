@@ -39,6 +39,7 @@ class Single
     //单例方法,用于访问实例的公共的静态方法
     public static function getInstance()
     {
+        //使用instanceof关键字可以确定一个对象是类的实例、类的子类，还是实现了某个特定接口，并进行相应的操作。
         if(!(self::$_instance instanceof self))
         {
             self::$_instance = new self;

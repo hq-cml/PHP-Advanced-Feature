@@ -27,6 +27,12 @@ class Single
     //创建__clone方法防止对象被复制克隆
     public function __clone()
     {
+        /*
+         * trigger_error() 函数创建用户定义的错误消息。
+         * trigger_error() 用于在用户指定的条件下触发一个错误消息。
+         * 它与内建的错误处理器一同使用，也可以与由 set_error_handler() 
+         * 函数创建的用户自定义函数使用。
+         */
         trigger_error('Clone is not allow!',E_USER_ERROR);
     }
     

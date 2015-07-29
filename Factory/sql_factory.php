@@ -6,9 +6,9 @@
 
 class Mysql
 {
-    function connection($db_config)
+    function connect($db_config)
     {
-        echo "Mysql Connect";
+        echo "Mysql Connect:".json_encode($db_config)."\n";
     }
 }
 
@@ -23,12 +23,26 @@ class SqlFactory
     
     function __call($name, $args)
     {
-        
+        $ref = new ReflectionClass($this->target);
+        if($method = $ref->getMethod($name))
+        {
+            echo "Before Call\n";
+            
+            $method->invoke($this->target, $args);
+            
+            echo "After Call\n";
+            
+        }
     }
-    
-    
 }
 
+$db_config = array(
+    'host'=>'127.0.0.1',
+    'port'=>'3306'
+);
+            
+$sql = new SqlFactory('Mysql');
+$sql->connect($db_config);
 
 
  

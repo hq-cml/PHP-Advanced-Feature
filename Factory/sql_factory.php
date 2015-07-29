@@ -4,7 +4,7 @@
  * 利用__call和反射，实现一个简单的工厂
  */
 
-class mysql
+class Mysql
 {
     function connection($db_config)
     {
@@ -12,7 +12,15 @@ class mysql
     }
 }
 
-
+class SqlFactory
+{
+    private $target;
+    
+    function __construct($tar)
+    {
+        $this->target = new $tar();
+    }
+}
 
 
 

@@ -20,6 +20,13 @@ class SqlFactory
     {
         $this->target = new $tar();
     }
+    
+    function __call($name, $args)
+    {
+        
+    }
+    
+    
 }
 
 
